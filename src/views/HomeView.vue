@@ -63,17 +63,17 @@ export default {
             </button>
         </div>
     </div>
-    <main class="grid grid-cols-3 h-full">
+    <main class="xl:grid xl:grid-cols-3 h-full">
         <div class="flex flex-col justify-between">
             <transition name="fade" mode="out-in">
                 <h1
                     :key="section_title[current_section]"
-                    class="text-9xl word-spacing-full"
+                    class="text-9xl xl:word-spacing-full"
                 >
                     {{ section_title[current_section] }}
                 </h1>
             </transition>
-            <nav class="flex flex-col gap-y-2 text-2xl">
+            <nav class="hidden xl:flex flex-col gap-y-2 text-2xl">
                 <ul>
                     Our Instagram
                 </ul>
@@ -107,4 +107,3 @@ h1 {
     font-weight: 600;
 }
 </style>
-

@@ -3,9 +3,6 @@ module.exports = {
     content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
     theme: {
         extend: {
-            height: {
-                "fill-p": "calc(100vh - 12rem)",
-            },
             colors: {
                 color: "rgb(var(--color))",
                 "bg-color": "rgb(var(--bg-color))",

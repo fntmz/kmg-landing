@@ -7,7 +7,7 @@ export default {
 </script>
 
 <template>
-    <div class="h-screen p-24">
+    <div class="h-screen p-6 2xl:p-24">
         <RouterView />
     </div>
 </template>

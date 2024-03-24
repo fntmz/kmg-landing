@@ -1,6 +1,4 @@
 <script>
-// import Cursor from "./components/Layout/Cursor.vue";
-// import store from "../store";
 import { RouterView } from "vue-router";
 
 export default {
@@ -8,6 +6,8 @@ export default {
     components: {
         RouterView,
     },
+
+    // APPLY DARKMODE
     setup() {
         if (
             localStorage.darkmode === "dark" ||
@@ -27,4 +27,52 @@ export default {
         <RouterView />
     </div>
 </template>
+
+<style>
+/* FONTS */
+@font-face {
+    font-family: "Thunder HC";
+    src: url("./assets/fonts/Thunder/woff2/Thunder-ExtraLightHCItalic.woff2")
+            format("woff2"),
+        url("./assets/fonts/Thunder/ttf/Thunder-ExtraLightHCItalic.ttf")
+            format("truetype");
+    font-weight: 200;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Thunder HC";
+    src: url("./assets/fonts/Thunder/woff2/Thunder-SemiBoldHC.woff2")
+            format("woff2"),
+        url("./assets/fonts/Thunder/ttf/Thunder-SemiBoldHC.ttf")
+            format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Thunder HC";
+    src: url("./assets/fonts/Thunder/woff2/Thunder-SemiBoldHCItalic.woff2")
+            format("woff2"),
+        url("./assets/fonts/Thunder/ttf/Thunder-SemiBoldHCItalic.ttf")
+            format("truetype");
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Thunder LC";
+    src: url("./assets/fonts/Thunder/woff2/Thunder-LightLC.woff2")
+            format("woff2"),
+        url("./assets/fonts/Thunder/ttf/Thunder-LightLC.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Thunder LC";
+    src: url("./assets/fonts/Thunder/woff2/Thunder-SemiBoldLC.woff2")
+            format("woff2"),
+        url("./assets/fonts/Thunder/ttf/Thunder-SemiBoldLC.ttf")
+            format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+</style>
 

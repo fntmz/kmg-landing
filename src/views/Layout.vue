@@ -7,12 +7,8 @@ export default {
 </script>
 
 <template>
-    <div class="p-24">
-        <RouterView v-slot="{ Component }">
-            <transition name="fade">
-                <component :is="Component" />
-            </transition>
-        </RouterView>
+    <div class="h-screen p-24">
+        <RouterView />
     </div>
 </template>
 

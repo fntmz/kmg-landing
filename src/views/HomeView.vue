@@ -6,6 +6,8 @@ import Donate from "../components/Home/Donate.vue";
 import Contact from "../components/Home/Contact.vue";
 import ChevronUpIcon from "../assets/icons/ChevronUp.vue";
 import ChevronDownIcon from "../assets/icons/ChevronDown.vue";
+import Moon from "../assets/icons/Moon.vue";
+import ToggleDarkmode from "../composables/Darkmode.vue";
 
 export default {
     name: "Layout",
@@ -17,6 +19,7 @@ export default {
         Contact,
         ChevronUpIcon,
         ChevronDownIcon,
+        Moon,
     },
     data() {
         return {
@@ -26,51 +29,82 @@ export default {
                 "OUR HISTORY",
                 "OUR PEOPLE",
                 "HELP KILLARNEY",
-                "GET IN TOUCH",
+                "WORK WITH US",
             ],
             sections: ["Landing", "History", "Team", "Donate", "Contact"],
         };
+    },
+    methods: {
+        ToggleDarkmode,
     },
 };
 </script>
 
 <template>
     <div
-        class="fixed top-0 left-0 w-screen h-screen p-4 flex flex-col justify-between items-center text-xl"
+        class="z-10 fixed top-0 right-0 h-screen p-4 flex flex-col gap-y-8 justify-center text-xl"
     >
         <div
-            class="opacity-0"
+            class="opacity-0 transition-opacity duration-300"
             :class="{ 'opacity-100': 0 < current_section }"
             @click="() => --current_section"
         >
-            up
+            <button class="p-3 rounded-full bg-color">
+                <ChevronUpIcon class="w-3 aspect-square fill-bg-color" />
+            </button>
         </div>
         <div
-            class="opacity-0"
+            class="opacity-0 transition-opacity duration-300"
             :class="{ 'opacity-100': 4 > current_section }"
             @click="() => ++current_section"
         >
-            down
+            <button class="p-3 rounded-full bg-color">
+                <ChevronDownIcon class="w-3 aspect-square fill-bg-color" />
+            </button>
         </div>
     </div>
-    <main>
-        <div class="grid grid-cols-2">
+    <main class="grid grid-cols-3 h-full">
+        <div class="flex flex-col justify-between">
             <transition name="fade" mode="out-in">
                 <h1
                     :key="section_title[current_section]"
-                    class="text-9xl font-bold word-spacing-full"
+                    class="text-9xl word-spacing-full"
                 >
                     {{ section_title[current_section] }}
                 </h1>
             </transition>
-            <div class="col-start-2">
-                <transition name="fade">
-                    <component :is="sections[current_section]" />
-                </transition>
-            </div>
+            <nav class="flex flex-col gap-y-2 text-2xl">
+                <ul>
+                    Our Instagram
+                </ul>
+                <ul>
+                    Our Youtube
+                </ul>
+                <ul>
+                    Contact us
+                </ul>
+                <ul>
+                    Frequently asked questions
+                </ul>
+                <ul>
+                    <button @click="ToggleDarkmode">
+                        <Moon class="w-4 fill-color" />
+                    </button>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-start-2 col-span-2 overflow-hidden">
+            <transition name="fade">
+                <component :is="sections[current_section]" />
+            </transition>
         </div>
     </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+h1 {
+    font-family: "Thunder HC";
+    font-weight: 600;
+}
+</style>
 

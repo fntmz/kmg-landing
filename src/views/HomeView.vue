@@ -45,20 +45,20 @@ export default {
         class="z-10 fixed top-0 right-0 h-screen p-4 flex flex-col gap-y-8 justify-center text-xl"
     >
         <div
-            class="opacity-0 transition-opacity duration-300"
-            :class="{ 'opacity-100': 0 < current_section }"
+            class="opacity-0 transition-opacity duration-300 pointer-events-none"
+            :class="{ 'opacity-100 pointer-events-auto': 0 < current_section }"
             @click="() => --current_section"
         >
-            <button class="p-3 rounded-full bg-color">
+            <button class="p-3 rounded-full bg-custom-gray">
                 <ChevronUpIcon class="w-3 aspect-square fill-bg-color" />
             </button>
         </div>
         <div
-            class="opacity-0 transition-opacity duration-300"
-            :class="{ 'opacity-100': 4 > current_section }"
+            class="opacity-0 transition-opacity duration-300 pointer-events-none"
+            :class="{ 'opacity-100 pointer-events-auto': 4 > current_section }"
             @click="() => ++current_section"
         >
-            <button class="p-3 rounded-full bg-color">
+            <button class="p-3 rounded-full bg-custom-gray">
                 <ChevronDownIcon class="w-3 aspect-square fill-bg-color" />
             </button>
         </div>
@@ -84,7 +84,7 @@ export default {
                     Contact us
                 </ul>
                 <ul>
-                    Frequently asked questions
+                    FAQs
                 </ul>
                 <ul>
                     <button @click="ToggleDarkmode">
@@ -93,7 +93,7 @@ export default {
                 </ul>
             </nav>
         </div>
-        <div class="col-start-2 col-span-2 overflow-hidden">
+        <div class="col-start-2 col-span-2 overflow-y-hidden">
             <transition name="fade">
                 <component :is="sections[current_section]" />
             </transition>

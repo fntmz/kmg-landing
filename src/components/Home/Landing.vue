@@ -16,7 +16,7 @@ export default {
         >
             <img
                 class="flex-shrink-0 min-h-full min-w-full object-cover"
-                src="https://54f09aded217d7de40fe.cdn6.editmysite.com/uploads/b/54f09aded217d7de40feedfb1d0ad5cf44a751060ee3269a271a75963a3a8fd7/2022-12-22_21-50-39_1671774648.jpg?width=800&dpr=1"
+                src="https://54f09aded217d7de40fe.cdn6.editmysite.com/uploads/b/54f09aded217d7de40feedfb1d0ad5cf44a751060ee3269a271a75963a3a8fd7/2023-01-18_19-30-47_1674099060.jpg?width=800&dpr=1"
                 alt=""
                 srcset=""
             />

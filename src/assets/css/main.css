@@ -58,7 +58,7 @@ a,
 button {
     color: rgb(var(--color));
     text-decoration: none;
-    transition: color 300ms;
+    transition: color 300ms, fill 300ms;
 }
 a:hover,
 a:hover *,

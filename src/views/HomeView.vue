@@ -34,6 +34,15 @@ export default {
             sections: ["Landing", "History", "Team", "Donate", "Contact"],
         };
     },
+    // mounted() {
+    //     document.querySelectorAll("#main *").forEach((el, i) => {
+    //         el.classList.add(
+    //             "transition-all",
+    //             "!delay-" + "[" + (i + 1) * 150 + "ms]",
+    //         );
+    //     });
+    // },
+
     methods: {
         ToggleDarkmode,
     },
@@ -93,7 +102,7 @@ export default {
                 </ul>
             </nav>
         </div>
-        <div class="col-start-2 col-span-2 overflow-y-hidden">
+        <div class="col-start-2 col-span-2 overflow-y-hidden" id="main">
             <transition name="fade">
                 <component :is="sections[current_section]" />
             </transition>

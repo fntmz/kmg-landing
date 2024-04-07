@@ -5,10 +5,8 @@ export default {
 </script>
 
 <template>
-    <div class="h-full flex items-center">
-        <main
-            class="flex flex-col w-full xl:gap-y-12 2xl:gap-y-24 2xl:h-[calc(100vh-12rem)]"
-        >
+    <div class="flex">
+        <main class="flex flex-col w-full xl:gap-y-12 2xl:gap-y-24">
             <h2 class="text-3xl font-light">
                 We aim to make an impact in Killarney Secondary School by
                 helping<br class="hidden md:block" />

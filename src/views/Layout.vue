@@ -7,13 +7,7 @@ export default {
 </script>
 
 <template>
-    <div class="h-screen p-6 2xl:p-24">
+    <div class="h-screen overflow-hidden">
         <RouterView />
     </div>
 </template>
-
-<style scoped>
-main.active {
-    opacity: 1 !important;
-}
-</style>

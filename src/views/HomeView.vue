@@ -72,8 +72,9 @@ export default {
             </button>
         </div>
     </div>
-    <main class="xl:grid xl:grid-cols-3 h-full">
-        <div class="flex flex-col justify-between">
+
+    <div class="xl:grid xl:grid-cols-3 h-screen">
+        <div class="flex flex-col justify-between p-6 2xl:p-24">
             <transition name="fade" mode="out-in">
                 <h1
                     :key="section_title[current_section]"
@@ -84,16 +85,16 @@ export default {
             </transition>
             <nav class="hidden xl:flex flex-col gap-y-2 text-2xl">
                 <ul>
-                    Our Instagram
+                    <a>Our Instagram</a>
                 </ul>
                 <ul>
-                    Our Youtube
+                    <a>Our Youtube</a>
                 </ul>
                 <ul>
-                    Contact us
+                    <a>Contact us</a>
                 </ul>
                 <ul>
-                    FAQs
+                    <a>FAQs</a>
                 </ul>
                 <ul>
                     <button @click="ToggleDarkmode">
@@ -102,12 +103,15 @@ export default {
                 </ul>
             </nav>
         </div>
-        <div class="col-start-2 col-span-2 overflow-y-hidden" id="main">
-            <transition name="fade">
-                <component :is="sections[current_section]" />
+        <div class="col-start-2 col-span-2 overflow-hidden" id="main">
+            <transition name="fade" mode="out-in">
+                <component
+                    class="h-full px-6 xl:px-0 xl:pt-6 2xl:pt-24"
+                    :is="sections[current_section]"
+                />
             </transition>
         </div>
-    </main>
+    </div>
 </template>
 
 <style scoped>

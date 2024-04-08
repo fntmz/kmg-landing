@@ -1,5 +1,5 @@
 <script>
-import "../assets/css/transition.css";
+import "../../assets/css/transition.css";
 
 export default {
     name: "Layout",

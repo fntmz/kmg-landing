@@ -4,10 +4,12 @@ import History from "../components/Home/History.vue";
 import Team from "../components/Home/Team.vue";
 import Donate from "../components/Home/Donate.vue";
 import Contact from "../components/Home/Contact.vue";
+import Loader from "../components/Home/Loader.vue";
 import ChevronUpIcon from "../assets/icons/ChevronUp.vue";
 import ChevronDownIcon from "../assets/icons/ChevronDown.vue";
 import Moon from "../assets/icons/Moon.vue";
-import ToggleDarkmode from "../composables/Darkmode.vue";
+import useDarkmode from "../composables/useDarkmode.js";
+import { store } from "../store/store.js";
 
 export default {
     name: "Layout",
@@ -17,6 +19,7 @@ export default {
         Team,
         Donate,
         Contact,
+        Loader,
         ChevronUpIcon,
         ChevronDownIcon,
         Moon,
@@ -25,26 +28,30 @@ export default {
         return {
             current_section: 0,
             section_title: [
+                "LOADING... " + store.loadingPercentage + "%",
                 "KILLARNEY MARKETING GROUP",
                 "OUR HISTORY",
                 "OUR PEOPLE",
                 "HELP KILLARNEY",
                 "WORK WITH US",
             ],
-            sections: ["Landing", "History", "Team", "Donate", "Contact"],
+            sections: [
+                "Loader",
+                "Landing",
+                "History",
+                "Team",
+                "Donate",
+                "Contact",
+            ],
         };
     },
-    // mounted() {
-    //     document.querySelectorAll("#main *").forEach((el, i) => {
-    //         el.classList.add(
-    //             "transition-all",
-    //             "!delay-" + "[" + (i + 1) * 150 + "ms]",
-    //         );
-    //     });
-    // },
-
+    mounted() {
+        setTimeout(() => {
+            // this.current_section = 1;
+        }, 2000);
+    },
     methods: {
-        ToggleDarkmode,
+        useDarkmode,
     },
 };
 </script>
@@ -52,10 +59,11 @@ export default {
 <template>
     <div
         class="z-10 fixed top-0 right-0 h-screen p-4 flex flex-col gap-y-8 justify-center text-xl"
+        id="navigator"
     >
         <div
             class="opacity-0 transition-opacity duration-300 pointer-events-none"
-            :class="{ 'opacity-100 pointer-events-auto': 0 < current_section }"
+            :class="{ 'opacity-100 pointer-events-auto': 1 < current_section }"
             @click="() => --current_section"
         >
             <button class="p-3 rounded-full bg-custom-gray">
@@ -78,7 +86,7 @@ export default {
             <transition name="fade" mode="out-in">
                 <h1
                     :key="section_title[current_section]"
-                    class="text-9xl xl:word-spacing-full"
+                    class="xl:word-spacing-full"
                 >
                     {{ section_title[current_section] }}
                 </h1>
@@ -97,7 +105,7 @@ export default {
                     <a>FAQs</a>
                 </ul>
                 <ul>
-                    <button @click="ToggleDarkmode">
+                    <button @click="useDarkmode">
                         <Moon class="w-4 fill-color" />
                     </button>
                 </ul>
@@ -118,5 +126,7 @@ export default {
 h1 {
     font-family: "Thunder HC";
     font-weight: 600;
+    font-size: clamp(6rem, 8vw, 10rem);
+    line-height: 1;
 }
 </style>

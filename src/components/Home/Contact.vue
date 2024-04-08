@@ -4,4 +4,4 @@ export default {
 };
 </script>
 
-<template></template>
+<template><div>This is our team</div></template>

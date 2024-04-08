@@ -26,7 +26,7 @@ export default {
 
 <template>
     <main class="h-full flex flex-col gap-y-8">
-        <div class="w-full grid grid-cols-2">
+        <div class="w-full lg:grid lg:grid-cols-2">
             <div>
                 <div class="text-4xl font-semibold">We have raised...</div>
                 <h1 class="text-accent italic font-semibold">${{ money }}</h1>
@@ -51,6 +51,6 @@ export default {
 h1,
 #past-fundraisers {
     font-family: "Thunder HC";
-    font-size: clamp(8rem, 10vw, 16rem);
+    font-size: clamp(10rem, 10vw, 16rem);
 }
 </style>

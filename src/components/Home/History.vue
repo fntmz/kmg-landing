@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-    <main class="h-full flex flex-col gap-y-8">
+    <main class="h-full flex flex-col gap-y-8 pb-6 2xl:pb-24">
         <div class="w-full lg:grid lg:grid-cols-2">
             <div>
                 <div class="text-4xl font-semibold">We have raised...</div>
@@ -38,11 +38,33 @@ export default {
                 </h1>
             </div>
         </div>
-        <div>
+        <div class="overflow-visible">
             <div class="text-6xl font-semibold" id="past-fundraisers">
                 Past fundraisers
             </div>
-            <div></div>
+            <ul class="flex gap-x-16">
+                <li class="h-[50vh] aspect-square grid place-items-center">
+                    <img
+                        class="flex-shrink-0 min-h-full min-w-full object-cover"
+                        src="https://54f09aded217d7de40fe.cdn6.editmysite.com/uploads/b/54f09aded217d7de40feedfb1d0ad5cf44a751060ee3269a271a75963a3a8fd7/2022-12-28_17-04-06_1672275881.jpg?width=800&dpr=1"
+                        alt=""
+                    />
+                </li>
+                <li class="h-[50vh] aspect-square grid place-items-center">
+                    <img
+                        class="flex-shrink-0 min-h-full min-w-full object-cover"
+                        src="https://54f09aded217d7de40fe.cdn6.editmysite.com/uploads/b/54f09aded217d7de40feedfb1d0ad5cf44a751060ee3269a271a75963a3a8fd7/2022-12-22_21-50-39_1671774648.jpg?width=800&dpr=1"
+                        alt=""
+                    />
+                </li>
+                <li class="h-[50vh] aspect-square grid place-items-center">
+                    <img
+                        class="flex-shrink-0 min-h-full min-w-full object-cover"
+                        src="https://54f09aded217d7de40fe.cdn6.editmysite.com/uploads/b/54f09aded217d7de40feedfb1d0ad5cf44a751060ee3269a271a75963a3a8fd7/2022-12-22_21-50-08_1671774631.jpg?width=800&dpr=1"
+                        alt=""
+                    />
+                </li>
+            </ul>
         </div>
     </main>
 </template>

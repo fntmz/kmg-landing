@@ -31,12 +31,18 @@ export default {
         <div class="grid place-items-center">
             <div class="relative">
                 <div class="mx-4 flex flex-col gap-y-6">
-                    <button class="p-3 rounded-full bg-custom-gray">
+                    <button class="relative p-3 rounded-full overflow-hidden">
+                        <div
+                            class="-z-10 absolute top-0 left-0 w-full h-full bg-color opacity-20"
+                        ></div>
                         <ChevronUpIcon
                             class="w-3 aspect-square fill-bg-color"
                         />
                     </button>
-                    <button class="p-3 rounded-full bg-custom-gray">
+                    <button class="relative p-3 rounded-full overflow-hidden">
+                        <div
+                            class="-z-10 absolute top-0 left-0 w-full h-full bg-color opacity-20"
+                        ></div>
                         <ChevronDownIcon
                             class="w-3 aspect-square fill-bg-color"
                         />

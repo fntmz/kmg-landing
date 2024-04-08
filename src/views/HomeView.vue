@@ -28,7 +28,7 @@ export default {
         return {
             current_section: 0,
             section_title: [
-                "LOADING... " + useLoadProgress.loadingPercent + "%",
+                "LOADING... " + 100 + "%",
                 "KILLARNEY MARKETING GROUP",
                 "OUR HISTORY",
                 "OUR PEOPLE",
@@ -68,7 +68,10 @@ export default {
             :class="{ 'opacity-100 pointer-events-auto': 1 < current_section }"
             @click="() => --current_section"
         >
-            <button class="p-3 rounded-full bg-custom-gray">
+            <button class="relative p-3 rounded-full overflow-hidden">
+                <div
+                    class="-z-10 absolute top-0 left-0 w-full h-full bg-color opacity-20"
+                ></div>
                 <ChevronUpIcon class="w-3 aspect-square fill-bg-color" />
             </button>
         </div>
@@ -77,7 +80,10 @@ export default {
             :class="{ 'opacity-100 pointer-events-auto': 4 > current_section }"
             @click="() => ++current_section"
         >
-            <button class="p-3 rounded-full bg-custom-gray">
+            <button class="relative p-3 rounded-full overflow-hidden">
+                <div
+                    class="-z-10 absolute top-0 left-0 w-full h-full bg-color opacity-20"
+                ></div>
                 <ChevronDownIcon class="w-3 aspect-square fill-bg-color" />
             </button>
         </div>
@@ -113,10 +119,10 @@ export default {
                 </ul>
             </nav>
         </div>
-        <div class="col-start-2 col-span-2 overflow-hidden" id="main">
+        <div class="col-start-2 col-span-2" id="main">
             <transition name="fade" mode="out-in">
                 <component
-                    class="h-full px-6 xl:px-0 xl:pt-6 2xl:pt-24"
+                    class="h-full px-6 xl:px-0 pt-6 2xl:pt-24"
                     :is="sections[current_section]"
                 />
             </transition>

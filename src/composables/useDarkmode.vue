@@ -1,3 +1,4 @@
+<script>
 export default () => {
     if (localStorage.darkmode == "light") {
         localStorage.setItem("darkmode", "dark");
@@ -7,3 +8,4 @@ export default () => {
         document.documentElement.classList.remove("dark");
     }
 };
+</script>

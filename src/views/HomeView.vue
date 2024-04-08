@@ -8,8 +8,8 @@ import Loader from "../components/Home/Loader.vue";
 import ChevronUpIcon from "../assets/icons/ChevronUp.vue";
 import ChevronDownIcon from "../assets/icons/ChevronDown.vue";
 import Moon from "../assets/icons/Moon.vue";
-import useDarkmode from "../composables/useDarkmode.js";
-import { store } from "../store/store.js";
+import useDarkmode from "../composables/useDarkmode.vue";
+import useLoadProgress from "../composables/useLoadProgress.vue";
 
 export default {
     name: "Layout",
@@ -28,7 +28,7 @@ export default {
         return {
             current_section: 0,
             section_title: [
-                "LOADING... " + store.loadingPercentage + "%",
+                "LOADING... " + useLoadProgress.loadingPercent + "%",
                 "KILLARNEY MARKETING GROUP",
                 "OUR HISTORY",
                 "OUR PEOPLE",
@@ -45,9 +45,11 @@ export default {
             ],
         };
     },
+    computed: {},
     mounted() {
+        console.log(useLoadProgress.loadingPercent + "%");
         setTimeout(() => {
-            // this.current_section = 1;
+            this.current_section = 1;
         }, 2000);
     },
     methods: {

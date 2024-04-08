@@ -4,44 +4,6 @@ import ChevronUpIcon from "../../assets/icons/ChevronUp.vue";
 import { store } from "../../store/store.js";
 export default {
     name: "Loader",
-    mounted() {
-        // document.querySelector("span").classList.remove("w-full");
-    },
-    created() {
-        let perfData = window.performance.timing;
-        let estimatedTime = Math.abs(
-            perfData.loadEventEnd - perfData.navigationStart,
-        );
-        this.loadTime = parseInt((estimatedTime / 1000) % 60) * 100;
-        this.doProgress();
-    },
-    methods: {
-        doProgress() {
-            let step = this.loadTime / 100;
-            this.interval = setInterval(() => {
-                store.loadingPercentage++;
-            }, step);
-        },
-    },
-    computed: {
-        loaded() {
-            return store.loadingPercentage + "%";
-        },
-    },
-    watch: {
-        loadingPercent(val) {
-            if (val >= 100) {
-                console.log("complete");
-                clearInterval(this.interval);
-            }
-        },
-    },
-    data() {
-        return {
-            loadTime: 0,
-            interval: null,
-        };
-    },
     components: {
         ChevronUpIcon,
         ChevronDownIcon,

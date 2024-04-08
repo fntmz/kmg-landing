@@ -28,10 +28,10 @@
 
 @keyframes back-and-forth {
     0% {
-        transform: translate(0, 0);
+        transform: rotate(0deg);
     }
     100% {
-        transform: translate(-50px, -50px);
+        transform: rotate(180deg);
     }
 }
 

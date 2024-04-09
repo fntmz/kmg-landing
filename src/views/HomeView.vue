@@ -90,7 +90,7 @@ export default {
     </div>
 
     <div class="xl:grid xl:grid-cols-3 h-screen">
-        <div class="flex flex-col justify-between p-6 2xl:p-24">
+        <div class="h-screen flex flex-col justify-between p-6 2xl:p-24">
             <transition name="fade" mode="out-in">
                 <h1
                     :key="section_title[current_section]"

@@ -23,7 +23,9 @@ export default {
                 id="inner"
             >
                 <div class="p-6 2xl:p-24 h-[200vh]">
-                    <div>back</div>
+                    <button @click="() => (store.fundraiserActive = false)">
+                        back
+                    </button>
                     <h2>Things we did...</h2>
                 </div>
             </div>

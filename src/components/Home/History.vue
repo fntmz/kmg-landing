@@ -1,7 +1,11 @@
 <script>
 import { store } from "../../store/store.js";
+import ChevronUpIcon from "../../assets/icons/ChevronUp.vue";
 export default {
     name: "History",
+    components: {
+        ChevronUpIcon,
+    },
     data() {
         return {
             store,
@@ -47,7 +51,7 @@ export default {
     <main class="h-full flex flex-col gap-y-4 pb-6 2xl:pb-24">
         <div class="w-full md:grid md:grid-cols-2">
             <div>
-                <div class="text-4xl font-semibold">We have raised...</div>
+                <h4>We have raised...</h4>
                 <h2
                     class="leading-tight xl:leading-normal text-accent italic font-semibold"
                 >
@@ -55,7 +59,7 @@ export default {
                 </h2>
             </div>
             <div class="col-start-2">
-                <div class="text-4xl font-semibold">for...</div>
+                <h4>for...</h4>
                 <h2
                     class="leading-tight xl:leading-normal text-accent italic font-semibold"
                 >
@@ -70,8 +74,12 @@ export default {
             >
                 Past fundraisers
             </div>
-            <button @click="() => (store.fundraiserActive = true)">
-                View all
+            <button
+                class="flex flex-grow leading-normal"
+                @click="() => (store.fundraiserActive = true)"
+            >
+                <h4>View all</h4>
+                <ChevronUpIcon class="fill-color" />
             </button>
         </div>
         <div class="h-full w-[99999px]">
@@ -105,10 +113,18 @@ h3 {
 
 h2 {
     font-size: clamp(7.5rem, 10vw, 16rem);
+    line-height: clamp(7.5rem, 10vw, 16rem);
 }
 
 h3 {
     font-size: clamp(2rem, 2.5vw, 4rem);
+    line-height: clamp(2rem, 2.5vw, 4rem);
     line-height: 1;
+}
+
+h4 {
+    font-size: 2.25rem;
+    line-height: 2.25rem;
+    font-weight: 600;
 }
 </style>

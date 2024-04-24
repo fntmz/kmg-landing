@@ -75,11 +75,10 @@ export default {
                 Past fundraisers
             </div>
             <button
-                class="flex flex-grow leading-normal"
+                class="flex items-end"
                 @click="() => (store.fundraiserActive = true)"
             >
-                <h4>View all</h4>
-                <ChevronUpIcon class="fill-color" />
+                <h4 class="leading-snug">View all</h4>
             </button>
         </div>
         <div class="h-full w-[99999px]">

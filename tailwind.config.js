@@ -15,6 +15,9 @@ module.exports = {
                 height: "height",
                 filter: "filter",
             },
+            transitionTimingFunction: {
+                default: "cubic-bezier(0.8, 0, 0.2, 1)",
+            },
             borderWidth: {
                 1: "1px",
             },

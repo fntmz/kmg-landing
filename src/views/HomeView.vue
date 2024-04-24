@@ -9,10 +9,11 @@ import ChevronUpIcon from "../assets/icons/ChevronUp.vue";
 import ChevronDownIcon from "../assets/icons/ChevronDown.vue";
 import Moon from "../assets/icons/Moon.vue";
 import useDarkmode from "../composables/useDarkmode.vue";
-import useLoadProgress from "../composables/useLoadProgress.vue";
+import Fundraisers from "../components/Fundraisers.vue";
+import { store } from "../store/store.js";
 
 export default {
-    name: "Layout",
+    name: "HomeView",
     components: {
         Landing,
         History,
@@ -23,14 +24,16 @@ export default {
         ChevronUpIcon,
         ChevronDownIcon,
         Moon,
+        Fundraisers,
     },
     data() {
         return {
+            store,
             current_section: 0,
             section_title: [
                 "LOADING... ",
                 "KILLARNEY MARKETING GROUP",
-                "OUR HISTORY",
+                "OUR WORK",
                 "OUR PEOPLE",
                 "HELP KILLARNEY",
                 "WORK WITH US",
@@ -47,7 +50,6 @@ export default {
     },
     computed: {},
     mounted() {
-        console.log(useLoadProgress.loadingPercent + "%");
         setTimeout(() => {
             this.current_section = 1;
             document
@@ -131,6 +133,12 @@ export default {
             </transition>
         </div>
     </div>
+
+    <Fundraisers
+        class="z-20 top-0 transition-transform duration-1000 ease-default"
+        :class="{ 'translate-y-0': store.fundraiserActive }"
+        id="fundraisers"
+    />
 </template>
 
 <style scoped>
@@ -139,5 +147,9 @@ h1 {
     font-weight: 600;
     font-size: clamp(6rem, 8vw, 10rem);
     line-height: 1;
+}
+
+#fundraisers {
+    transform: translateY(100%);
 }
 </style>

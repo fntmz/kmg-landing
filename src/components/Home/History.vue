@@ -1,8 +1,10 @@
 <script>
+import { store } from "../../store/store.js";
 export default {
     name: "History",
     data() {
         return {
+            store,
             money: 2700,
             clients: 2,
             fundraisers: [
@@ -15,11 +17,6 @@ export default {
                     name: "Buko Pandan",
                     image: "https://54f09aded217d7de40fe.cdn6.editmysite.com/uploads/b/54f09aded217d7de40feedfb1d0ad5cf44a751060ee3269a271a75963a3a8fd7/2022-12-22_21-50-39_1671774648.jpg?width=800&dpr=1",
                     alt: "Buko Pandan fundraiser",
-                },
-                {
-                    name: "Halloween",
-                    image: "https://54f09aded217d7de40fe.cdn6.editmysite.com/uploads/b/54f09aded217d7de40feedfb1d0ad5cf44a751060ee3269a271a75963a3a8fd7/2022-12-22_21-50-08_1671774631.jpg?width=800&dpr=1",
-                    alt: "Halloween fundraiser",
                 },
                 {
                     name: "Halloween",
@@ -43,7 +40,6 @@ export default {
             }
         }, 100);
     },
-    methods: {},
 };
 </script>
 
@@ -52,19 +48,19 @@ export default {
         <div class="w-full md:grid md:grid-cols-2">
             <div>
                 <div class="text-4xl font-semibold">We have raised...</div>
-                <h1
+                <h2
                     class="leading-tight xl:leading-normal text-accent italic font-semibold"
                 >
                     ${{ money }}
-                </h1>
+                </h2>
             </div>
             <div class="col-start-2">
                 <div class="text-4xl font-semibold">for...</div>
-                <h1
+                <h2
                     class="leading-tight xl:leading-normal text-accent italic font-semibold"
                 >
                     {{ clients }} clients
-                </h1>
+                </h2>
             </div>
         </div>
         <div class="flex gap-x-4">
@@ -74,20 +70,23 @@ export default {
             >
                 Past fundraisers
             </div>
-            <div class="flex items-center text-xl">
-                <button class="flex items-center gap-x-2">
-                    <span>View all</span>
-                </button>
-            </div>
+            <button @click="() => (store.fundraiserActive = true)">
+                View all
+            </button>
         </div>
-        <div class="h-full w-[9999px]">
+        <div class="h-full w-[99999px]">
             <ul class="flex gap-x-16 h-full">
                 <li
-                    class="h-full aspect-square grid place-items-center overflow-hidden"
+                    class="h-full relative aspect-square grid place-items-center overflow-hidden"
                     v-for="fundraiser in fundraisers"
                 >
+                    <div class="absolute py-2 px-4 bg-bg-color">
+                        <h3 class="text-accent">
+                            {{ fundraiser.name }}
+                        </h3>
+                    </div>
                     <img
-                        class="flex-shrink-0 min-h-full min-w-full object-cover hover:scale-105 transition-transform duration-300"
+                        class="-z-[1] flex-shrink-0 min-h-full min-w-full object-cover hover:scale-105 transition-transform duration-300"
                         :src="fundraiser.image"
                         :alt="fundraiser.alt"
                     />
@@ -98,12 +97,18 @@ export default {
 </template>
 
 <style scoped>
-h1,
-#past-fundraisers {
+h2,
+#past-fundraisers,
+h3 {
     font-family: "Thunder HC";
 }
 
-h1 {
+h2 {
     font-size: clamp(7.5rem, 10vw, 16rem);
+}
+
+h3 {
+    font-size: clamp(2rem, 2.5vw, 4rem);
+    line-height: 1;
 }
 </style>

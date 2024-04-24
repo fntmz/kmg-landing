@@ -28,7 +28,7 @@ export default {
         return {
             current_section: 0,
             section_title: [
-                "LOADING... " + 100 + "%",
+                "LOADING... ",
                 "KILLARNEY MARKETING GROUP",
                 "OUR HISTORY",
                 "OUR PEOPLE",
@@ -50,6 +50,9 @@ export default {
         console.log(useLoadProgress.loadingPercent + "%");
         setTimeout(() => {
             this.current_section = 1;
+            document
+                .getElementById("navigator")
+                .classList.remove("pointer-events-none");
         }, 2000);
     },
     methods: {
@@ -60,7 +63,7 @@ export default {
 
 <template>
     <div
-        class="z-10 fixed top-0 right-0 h-screen p-4 flex flex-col gap-y-8 justify-center text-xl"
+        class="z-10 fixed top-0 right-0 h-screen p-4 flex flex-col gap-y-8 justify-center text-xl pointer-events-none"
         id="navigator"
     >
         <div

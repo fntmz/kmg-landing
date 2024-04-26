@@ -15,7 +15,7 @@ export default {
                 via fundraisers and fun school events.
             </h2>
             <div
-                class="bg-color w-full h-full flex justify-center items-center overflow-hidden"
+                class="bg-color w-full h-full grid place-items-center overflow-hidden"
             >
                 <img
                     class="flex-shrink-0 min-h-full min-w-full object-cover"

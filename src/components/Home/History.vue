@@ -14,7 +14,7 @@ export default {
             fundraisers: [
                 {
                     name: "Minion Socks",
-                    image: "https://54f09aded217d7de40fe.cdn6.editmysite.com/uploads/b/54f09aded217d7de40feedfb1d0ad5cf44a751060ee3269a271a75963a3a8fd7/2022-12-28_17-04-06_1672275881.jpg?width=800&dpr=1",
+                    image: "https://54f09aded217d7de40fe.cdn6.editmysite.com/uploads/b/54f09aded217d7de40feedfb1d0ad5cf44a751060ee3269a271a75963a3a8fd7/minion%20socks_1670797506.jpeg?width=2400&optimize=medium",
                     alt: "Minion Socks fundraiser",
                 },
                 {
@@ -72,7 +72,7 @@ export default {
                 class="text-4xl md:text-6xl font-semibold"
                 id="past-fundraisers"
             >
-                Past fundraisers
+                Latest fundraisers
             </div>
             <button
                 class="flex items-end"
@@ -87,13 +87,16 @@ export default {
                     class="h-full relative aspect-square grid place-items-center overflow-hidden"
                     v-for="fundraiser in fundraisers"
                 >
-                    <div class="absolute py-2 px-4 bg-bg-color">
+                    <div
+                        class="absolute pt-2 px-4 flex items-center bg-bg-color text-center whitespace-nowrap overflow-hidden ease-out"
+                        id="fundraiser-name"
+                    >
                         <h3 class="text-accent">
                             {{ fundraiser.name }}
                         </h3>
                     </div>
                     <img
-                        class="-z-[1] flex-shrink-0 min-h-full min-w-full object-cover hover:scale-105 transition-transform duration-300"
+                        class="-z-[1] min-h-full min-w-full object-cover transition-transform duration-300"
                         :src="fundraiser.image"
                         :alt="fundraiser.alt"
                     />
@@ -118,12 +121,27 @@ h2 {
 h3 {
     font-size: clamp(2rem, 2.5vw, 4rem);
     line-height: clamp(2rem, 2.5vw, 4rem);
-    line-height: 1;
 }
 
 h4 {
     font-size: 2.25rem;
     line-height: 2.25rem;
     font-weight: 600;
+}
+
+li:hover img {
+    transform: scale(1.05);
+}
+
+li #fundraiser-name {
+    opacity: 0;
+    height: 0;
+    transition: opacity 0s 100ms, height 300ms;
+}
+
+li:hover #fundraiser-name {
+    opacity: 1;
+    height: calc(clamp(2rem, 2.5vw, 4rem) + 1rem);
+    transition: opacity 0s, height 300ms;
 }
 </style>
